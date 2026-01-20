@@ -1,15 +1,17 @@
 <?php
 /**
-Plugin Name: Saurabh Hooks Lab
-Description: Demonstrates custom hooks and filters
-Version: 1.0
-Author: Saurabh Kushwaha
-*/
+ * Plugin Name: Saurabh Hooks Lab
+ * Description: Professional WordPress engineering lab for hooks and filters.
+ * Version: 1.0
+ * Author: Saurabh Kushwaha
+ */
 
-add_action('init', function() {
-    do_action('saurabh_custom_action');
-});
+if (!defined('ABSPATH')) exit;
 
-add_action('saurabh_custom_action', function() {
-    error_log('Custom Action Triggered');
-});
+require_once plugin_dir_path(__FILE__) . 'includes/class-plugin.php';
+
+function saurabh_hooks_lab_init() {
+    return \SaurabhHooksLab\Plugin::get_instance();
+}
+
+saurabh_hooks_lab_init();
