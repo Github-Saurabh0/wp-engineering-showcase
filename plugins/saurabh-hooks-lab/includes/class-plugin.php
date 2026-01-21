@@ -20,10 +20,12 @@ class Plugin {
     }
 
     private function load_dependencies() {
-        require_once plugin_dir_path(__DIR__) . 'includes/class-hooks.php';
-        require_once plugin_dir_path(__DIR__) . 'includes/class-filters.php';
+    require_once plugin_dir_path(__DIR__) . 'includes/class-hooks.php';
+    require_once plugin_dir_path(__DIR__) . 'includes/class-filters.php';
+    require_once plugin_dir_path(__DIR__) . 'includes/class-admin.php';
 
-        Hooks::register();
-        Filters::register();
-    }
+    Hooks::register();
+    Filters::register();
+    Admin::register();
+}
 }
